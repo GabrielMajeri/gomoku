@@ -1,3 +1,7 @@
 #include <iostream>
 
-int main() { std::cout << "Hello world!" << std::endl; }
+#include "core/sdl.hpp"
+
+int main() {
+    SDL sdl;
+}
