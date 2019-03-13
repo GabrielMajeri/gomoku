@@ -7,4 +7,8 @@ class SDL {
     SDL();
     /// Shuts down SDL and cleans up any remaining resources
     ~SDL();
+
+    /// Prints the version of SDL compiled against and the version of SDL
+    /// present at runtime.
+    void printVersionInfo();
 };

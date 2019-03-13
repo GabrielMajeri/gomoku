@@ -4,4 +4,5 @@
 
 int main() {
     SDL sdl;
+    sdl.printVersionInfo();
 }

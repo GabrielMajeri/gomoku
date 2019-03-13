@@ -5,6 +5,7 @@ project(Connect5 VERSION 0.1.0 LANGUAGES CXX)
 add_executable(Connect5
     "src/main.cpp"
     "src/core/sdl.hpp" "src/core/sdl.cpp"
+    "src/core/version.hpp" "src/core/version.cpp"
 )
 
 # Enable modern C++ features
