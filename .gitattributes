@@ -1,0 +1,4 @@
+# This file sets attributes for files tracked by Git
+
+# Detect text files automatically and store them using LF as line terminator
+* text=auto eol=lf

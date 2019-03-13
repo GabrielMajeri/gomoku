@@ -1,0 +1,4 @@
+# This file lists paths to be ignored by Git
+
+# Usual CMake build directory
+/build/
