@@ -1,5 +1,6 @@
 #include "sdl.hpp"
 
+#include "error.hpp"
 #include "version.hpp"
 #include <SDL2/SDL.h>
 #include <iostream>
@@ -7,8 +8,7 @@
 SDL::SDL() {
     const Uint32 flags = 0;
     if (SDL_Init(flags) != 0) {
-        SDL_Log("Unable to initialize SDL: %s", SDL_GetError());
-        exit(EXIT_FAILURE);
+        throw SDLError("Unable to initialize SDL");
     }
 }
 
