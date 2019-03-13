@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        // EditorConfig is used to ensure a consistent style
+        "EditorConfig.EditorConfig",
+        // For C++ support
+        "ms-vscode.cpptools",
+        // For CMake support
+        "twxs.cmake",
+        "vector-of-bool.cmake-tools",
+    ]
+}
