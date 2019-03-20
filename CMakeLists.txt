@@ -8,6 +8,7 @@ add_executable(Connect5
     "src/core/sdl.hpp" "src/core/sdl.cpp"
     "src/core/version.hpp" "src/core/version.cpp"
     "src/core/wrapper.hpp"
+    "src/gui/renderer.hpp" "src/gui/renderer.cpp"
     "src/gui/window.hpp" "src/gui/window.cpp"
 )
 
