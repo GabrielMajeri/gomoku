@@ -2,7 +2,7 @@
 
 /// RAII wrapper for the SDL2 library
 class SDL {
-  public:
+public:
     /// Initializes the library's subsystems
     SDL();
     /// Shuts down SDL and cleans up any remaining resources

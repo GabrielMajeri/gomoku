@@ -12,7 +12,7 @@ class Window {
 
     std::unique_ptr<SDL_Window, WindowDeleter> handle;
 
-  public:
+public:
     /// Opens a new main window.
     Window();
 };

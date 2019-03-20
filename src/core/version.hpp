@@ -7,7 +7,7 @@
 class Version : private SDL_version {
     Version() = default;
 
-  public:
+public:
     /// Retrieves the version of the library the code was compiled with.
     static Version compiled();
     /// Retrieves the version of the library currently loaded dynamically
