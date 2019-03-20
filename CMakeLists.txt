@@ -2,7 +2,13 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
 project(Connect5 VERSION 0.1.0 LANGUAGES CXX)
 
-add_executable(Connect5
+# Include additional CMake scripts
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+include("clang-tools")
+include("out-of-source")
+
+# Enumerate all the source files
+set(SRCS
     "src/main.cpp"
     "src/core/error.hpp" "src/core/error.cpp"
     "src/core/sdl.hpp" "src/core/sdl.cpp"
@@ -11,6 +17,12 @@ add_executable(Connect5
     "src/gui/renderer.hpp" "src/gui/renderer.cpp"
     "src/gui/window.hpp" "src/gui/window.cpp"
 )
+
+# Create the main executable target of this project
+add_executable(Connect5 ${SRCS})
+
+# Add clang-format support
+add_clang_format_target("${SRCS}")
 
 # Enable modern C++ features
 target_compile_features(Connect5 PRIVATE cxx_std_14)
