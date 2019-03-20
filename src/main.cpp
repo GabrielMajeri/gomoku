@@ -1,12 +1,13 @@
 #include <iostream>
 
 #include "core/sdl.hpp"
+#include "gui/event.hpp"
 #include "gui/renderer.hpp"
 #include "gui/window.hpp"
 
 #include <SDL2/SDL.h>
 
-int main() {
+void runGame() {
     SDL sdl;
     sdl.printVersionInfo();
 
@@ -14,5 +15,17 @@ int main() {
 
     Renderer render{window};
 
-    SDL_Delay(3000);
+    EventLoop loop;
+
+    loop.run();
+}
+
+int main() {
+    try {
+        runGame();
+        return EXIT_SUCCESS;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 }
