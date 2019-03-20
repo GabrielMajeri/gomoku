@@ -15,6 +15,6 @@ Window::Window() {
     handle.reset(window);
 }
 
-void Window::WindowDeleter::operator()(SDL_Window* window) {
+template <> void Wrapper<SDL_Window>::Deleter::operator()(SDL_Window* window) {
     SDL_DestroyWindow(window);
 }

@@ -1,17 +1,9 @@
 #pragma once
 
-#include <memory>
-
-struct SDL_Window;
+#include "core/wrapper.hpp"
 
 /// Represents an enclosed rectangular portion of the screen.
-class Window {
-    struct WindowDeleter {
-        void operator()(SDL_Window* window);
-    };
-
-    std::unique_ptr<SDL_Window, WindowDeleter> handle;
-
+class Window : public Wrapper<struct SDL_Window> {
 public:
     /// Opens a new main window.
     Window();
