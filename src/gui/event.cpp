@@ -1,7 +1,7 @@
 #include "event.hpp"
 
 #include "core/error.hpp"
-#include <SDL2/SDL_events.h>
+#include <SDL.h>
 
 EventLoop::EventLoop() : handlers{}, running{false} {
     // Set up the default quit handler

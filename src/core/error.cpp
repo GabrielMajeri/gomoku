@@ -1,6 +1,6 @@
 #include "error.hpp"
 
-#include <SDL2/SDL_error.h>
+#include <SDL.h>
 
 SDLError::SDLError() : std::runtime_error(SDL_GetError()) {}
 

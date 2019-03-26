@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 project(Connect5 VERSION 0.1.0 LANGUAGES CXX)
 
 # Include additional CMake scripts
-set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 include("clang-tools")
 include("out-of-source")
 
@@ -20,7 +20,7 @@ set(SRCS
 )
 
 # Create the main executable target of this project
-add_executable(Connect5 ${SRCS})
+add_executable(Connect5 WIN32 ${SRCS})
 
 # Add clang-format support
 add_clang_format_target("${SRCS}")
@@ -32,8 +32,17 @@ target_compile_features(Connect5 PRIVATE cxx_std_14)
 target_include_directories(Connect5 PRIVATE "src")
 
 # Add the SDL2 dependency
-find_package(SDL2)
-target_link_libraries(Connect5 PRIVATE SDL2)
+find_package(SDL2 REQUIRED)
+target_include_directories(Connect5 PRIVATE "${SDL2_INCLUDE_DIR}")
+target_link_libraries(Connect5 PRIVATE "${SDL2_LIBRARY}")
+if(WIN32)
+    target_link_libraries(Connect5 PRIVATE
+        "SDL2main"
+        "dinput8" "gdi32" "imm32" "shell32"
+        "winmm" "user32" "ole32" "uuid" "version"
+        "setupapi"
+    )
+endif()
 
 # Enable extra compiler warnings and treat warnings as errors
 if(MSVC)

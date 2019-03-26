@@ -1,7 +1,7 @@
 #include "renderer.hpp"
 
 #include "gui/window.hpp"
-#include <SDL2/SDL_render.h>
+#include <SDL.h>
 
 Renderer::Renderer(Window& window) {
     const int index = -1;

@@ -5,7 +5,7 @@
 #include "gui/renderer.hpp"
 #include "gui/window.hpp"
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 void runGame() {
     SDL sdl;
@@ -20,7 +20,7 @@ void runGame() {
     loop.run();
 }
 
-int main() {
+int main(int, char*[]) {
     try {
         runGame();
         return EXIT_SUCCESS;

@@ -2,7 +2,7 @@
 
 #include "error.hpp"
 #include "version.hpp"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include <iostream>
 
 SDL::SDL() {
