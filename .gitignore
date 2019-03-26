@@ -2,3 +2,6 @@
 
 # Usual CMake build directory
 /build/
+
+# Cache for VS Code C/C++ extension
+.vscode/ipch/
