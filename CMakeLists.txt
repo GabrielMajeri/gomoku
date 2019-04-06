@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
-project(Connect5 VERSION 0.1.0 LANGUAGES CXX)
+project(Gomoku VERSION 0.1.0 LANGUAGES CXX)
 
 # Include additional CMake scripts
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
@@ -20,23 +20,24 @@ set(SRCS
 )
 
 # Create the main executable target of this project
-add_executable(Connect5 WIN32 ${SRCS})
+add_executable(Gomoku WIN32 ${SRCS})
 
 # Add clang-format support
 add_clang_format_target("${SRCS}")
 
 # Enable modern C++ features
-target_compile_features(Connect5 PRIVATE cxx_std_14)
+target_compile_features(Gomoku PRIVATE cxx_std_14)
 
 # Allow including relative to the root source directory
-target_include_directories(Connect5 PRIVATE "src")
+target_include_directories(Gomoku PRIVATE "src")
 
 # Add the SDL2 dependency
 find_package(SDL2 REQUIRED)
-target_include_directories(Connect5 PRIVATE "${SDL2_INCLUDE_DIR}")
-target_link_libraries(Connect5 PRIVATE "${SDL2_LIBRARY}")
+target_include_directories(Gomoku PRIVATE "${SDL2_INCLUDE_DIR}")
+target_link_libraries(Gomoku PRIVATE "${SDL2_LIBRARY}")
+
 if(WIN32)
-    target_link_libraries(Connect5 PRIVATE
+    target_link_libraries(Gomoku PRIVATE
         "SDL2main"
         "dinput8" "gdi32" "imm32" "shell32"
         "winmm" "user32" "ole32" "uuid" "version"
@@ -46,7 +47,7 @@ endif()
 
 # Enable extra compiler warnings and treat warnings as errors
 if(MSVC)
-    target_compile_options(Connect5 PRIVATE "/W4" "/WX")
+    target_compile_options(Gomoku PRIVATE "/W4" "/WX")
 else()
-    target_compile_options(Connect5 PRIVATE "-Wall" "-Wextra" "-pedantic" "-Werror")
+    target_compile_options(Gomoku PRIVATE "-Wall" "-Wextra" "-pedantic" "-Werror")
 endif()

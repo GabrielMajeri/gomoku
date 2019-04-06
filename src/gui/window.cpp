@@ -4,7 +4,7 @@
 #include <SDL.h>
 
 Window::Window() {
-    const char title[] = "Connect Five";
+    const char title[] = "Gomoku";
     const int x = 200, y = 100;
     const int width = 800, height = 600;
     const Uint32 flags = 0;
