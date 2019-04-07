@@ -1,8 +1,9 @@
 #include <iostream>
 
 #include "core/sdl.hpp"
+#include "gfx/color.hpp"
+#include "gfx/renderer.hpp"
 #include "gui/event.hpp"
-#include "gui/renderer.hpp"
 #include "gui/window.hpp"
 
 #include <SDL.h>
@@ -14,6 +15,11 @@ void runGame() {
     Window window;
 
     Renderer render{window};
+
+    render.setDrawColor(Color::BLACK);
+    render.clear();
+
+    render.present();
 
     EventLoop loop;
 
