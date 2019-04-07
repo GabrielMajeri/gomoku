@@ -7,6 +7,7 @@
 #include "gui/event.hpp"
 #include "gui/window.hpp"
 
+#define SDL_MAIN_HANDLED
 #include <SDL.h>
 
 void runGame() {
@@ -30,7 +31,7 @@ void runGame() {
     loop.run();
 }
 
-int main(int, char*[]) {
+int main() {
     try {
         runGame();
         return EXIT_SUCCESS;
