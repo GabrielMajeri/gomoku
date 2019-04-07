@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "core/sdl.hpp"
+#include "game/board.hpp"
 #include "gfx/color.hpp"
 #include "gfx/renderer.hpp"
 #include "gui/event.hpp"
@@ -18,6 +19,9 @@ void runGame() {
 
     render.setDrawColor(Color::BLACK);
     render.clear();
+
+    Board board(20, 23);
+    board.draw(render);
 
     render.present();
 
