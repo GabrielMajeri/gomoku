@@ -24,6 +24,6 @@ function(add_clang_format_target srcs)
             COMMAND "${CLANG_FORMAT}" "-i" "-style=file" ${FMT_FILES}
         )
     else()
-        message(WARN "clang-format not found")
+        message(WARNING "clang-format not found")
     endif()
 endfunction()
