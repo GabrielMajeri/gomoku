@@ -47,14 +47,27 @@ if(WIN32)
 
     configure_file("${SDL2_BIN_DIR}/SDL2.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
     configure_file("${SDL2_BIN_DIR}/SDL2_image.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
+    configure_file("${SDL2_BIN_DIR}/SDL2_ttf.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
+    configure_file("${SDL2_BIN_DIR}/libfreetype-6.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
     configure_file("${SDL2_BIN_DIR}/libpng16-16.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
     configure_file("${SDL2_BIN_DIR}/zlib1.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
 endif()
 
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
-target_include_directories(Gomoku PRIVATE "${SDL2_INCLUDE_DIRS}" "${SDL2_IMAGE_INCLUDE_DIRS}")
-target_link_libraries(Gomoku PRIVATE "${SDL2_LIBRARIES}" "${SDL2_IMAGE_LIBRARIES}")
+find_package(SDL2_ttf REQUIRED)
+target_include_directories(
+    Gomoku PRIVATE
+    "${SDL2_INCLUDE_DIRS}"
+    "${SDL2_IMAGE_INCLUDE_DIRS}"
+    "${SDL2_TTF_INCLUDE_DIRS}"
+)
+target_link_libraries(
+    Gomoku PRIVATE
+    "${SDL2_LIBRARIES}"
+    "${SDL2_IMAGE_LIBRARIES}"
+    "${SDL2_TTF_LIBRARIES}"
+)
 
 # Enable extra compiler warnings and treat warnings as errors
 if(MSVC)
