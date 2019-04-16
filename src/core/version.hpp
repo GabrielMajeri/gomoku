@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include "core/sdl.hpp"
 #include <iostream>
 
 /// Stores a version of the SDL library.

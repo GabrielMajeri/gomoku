@@ -2,8 +2,6 @@
 
 #include "error.hpp"
 #include "version.hpp"
-#include <SDL.h>
-#include <SDL_image.h>
 #include <iostream>
 
 SDL::SDL() {
@@ -14,6 +12,9 @@ SDL::SDL() {
     const Uint32 imgFlags = IMG_INIT_PNG;
     if (IMG_Init(imgFlags) != imgFlags) {
         throw SDLImageError("Unable to initialize SDL_image");
+    }
+    if (TTF_Init() != 0) {
+        throw SDLFontError("Unable to initialize SDL_ttf");
     }
 }
 

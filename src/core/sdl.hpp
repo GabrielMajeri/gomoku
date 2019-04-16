@@ -1,5 +1,10 @@
 #pragma once
 
+#define SDL_MAIN_HANDLED
+#include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
+
 /// RAII wrapper for the SDL2 library
 class SDL {
 public:

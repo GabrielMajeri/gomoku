@@ -1,7 +1,6 @@
 #include "window.hpp"
 
 #include "core/error.hpp"
-#include <SDL.h>
 
 Window::Window() {
     const char title[] = "Gomoku";

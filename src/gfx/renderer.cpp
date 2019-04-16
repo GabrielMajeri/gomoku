@@ -2,7 +2,6 @@
 
 #include "gfx/color.hpp"
 #include "gui/window.hpp"
-#include <SDL.h>
 
 Renderer::Renderer(Window& window) {
     const int index = -1;

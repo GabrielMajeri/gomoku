@@ -1,14 +1,13 @@
 #include "event.hpp"
 
 #include "core/error.hpp"
-#include <SDL.h>
 
 EventLoop::EventLoop() : handlers{}, running{false} {
     // Set up the default quit handler
     setEventHandler(SDL_QUIT, [this](const SDL_Event&) { requestStop(); });
 }
 
-void EventLoop::setEventHandler(unsigned type, EventHandler&& handler) {
+void EventLoop::setEventHandler(SDL_EventType type, EventHandler&& handler) {
     handlers[type] = std::move(handler);
 }
 

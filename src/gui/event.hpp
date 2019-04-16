@@ -3,7 +3,7 @@
 #include <functional>
 #include <unordered_map>
 
-union SDL_Event;
+#include "core/sdl.hpp"
 
 /// Interface to the main event loop of the application.
 ///
@@ -21,7 +21,7 @@ public:
     EventLoop();
 
     /// Sets a handler for an SDL event type.
-    void setEventHandler(unsigned type, EventHandler&& handler);
+    void setEventHandler(SDL_EventType type, EventHandler&& handler);
 
     /// Start the event loop.
     ///

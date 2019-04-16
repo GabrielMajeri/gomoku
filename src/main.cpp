@@ -7,9 +7,6 @@
 #include "gui/event.hpp"
 #include "gui/window.hpp"
 
-#define SDL_MAIN_HANDLED
-#include <SDL.h>
-
 void runGame() {
     SDL sdl;
     sdl.printVersionInfo();

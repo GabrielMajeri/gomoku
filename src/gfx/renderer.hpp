@@ -1,14 +1,14 @@
 #pragma once
 
+#include "core/sdl.hpp"
 #include "core/wrapper.hpp"
 #include <vector>
 
 class Color;
 class Window;
-struct SDL_Point;
 
 /// Basic interface for rendering to a surface.
-class Renderer : public Wrapper<struct SDL_Renderer> {
+class Renderer : public Wrapper<SDL_Renderer> {
 public:
     /// Constructs a new renderer presenting its output to a window.
     Renderer(Window& window);
