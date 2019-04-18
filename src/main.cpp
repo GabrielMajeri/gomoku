@@ -28,7 +28,7 @@ void runGame() {
     loop.run();
 }
 
-int main() {
+int main(int, char*[]) {
     try {
         runGame();
         return EXIT_SUCCESS;
