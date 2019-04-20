@@ -18,6 +18,8 @@ set(SRCS
     "src/gfx/color.hpp" "src/gfx/color.cpp"
     "src/gfx/drawable.hpp"
     "src/gfx/renderer.hpp" "src/gfx/renderer.cpp"
+    "src/gfx/surface.hpp" "src/gfx/surface.cpp"
+    "src/gui/font.hpp" "src/gui/font.cpp"
     "src/gui/event.hpp" "src/gui/event.cpp"
     "src/gui/window.hpp" "src/gui/window.cpp"
 )

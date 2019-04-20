@@ -17,3 +17,10 @@ public:
     /// SDL_image error.
     SDLImageError(const std::string& msg);
 };
+
+class SDLFontError : public std::runtime_error {
+public:
+    /// Constructs a new error from the given message and the last error
+    /// reported by SDL_ttf.
+    SDLFontError(const std::string& msg);
+};
