@@ -19,23 +19,32 @@ void Wrapper<SDL_Renderer>::Deleter::operator()(SDL_Renderer* renderer) {
 }
 
 void Renderer::setDrawColor(const Color& color) {
-    SDL_SetRenderDrawColor(getHandle(), color.getR8(), color.getG8(),
-                           color.getB8(), color.getAlpha8());
+    if (SDL_SetRenderDrawColor(getHandle(), color.getR8(), color.getG8(),
+                               color.getB8(), color.getAlpha8()) != 0) {
+        throw SDLError("Failed to set renderer draw color");
+    }
 }
 
 /// Sets the scale for the renderer's coordinate system.
 void Renderer::setScale(float x, float y) {
-    SDL_RenderSetScale(getHandle(), x, y);
+    if (SDL_RenderSetScale(getHandle(), x, y) != 0) {
+        throw SDLError("Failed to set renderer scale");
+    }
 }
 
 void Renderer::clear() { SDL_RenderClear(getHandle()); }
 
 void Renderer::drawLine(int x1, int y1, int x2, int y2) {
-    SDL_RenderDrawLine(getHandle(), x1, y1, x2, y2);
+    if (SDL_RenderDrawLine(getHandle(), x1, y1, x2, y2) != 0) {
+        throw SDLError("Failed to draw line");
+    }
 }
 
 void Renderer::drawLines(const std::vector<SDL_Point>& points) {
-    SDL_RenderDrawLines(getHandle(), points.data(), points.size());
+    if (SDL_RenderDrawLines(getHandle(), points.data(), points.size()) != 0) {
+        throw SDLError("Failed to draw lines");
+    }
+}
 
 void Renderer::copyTexture(const Texture& texture, const SDL_Rect* src,
                            const SDL_Rect* dest) {
