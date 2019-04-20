@@ -1,5 +1,6 @@
 #pragma once
 
+#include "core/sdl.hpp"
 #include <cstdint>
 
 /// An RGB color which also supports transparency.
@@ -16,6 +17,8 @@ public:
 
     /// Constructs a new color from its corresponding color code.
     Color(std::uint32_t hex);
+
+    operator SDL_Color() const;
 
     float getR() const { return red; }
     float getG() const { return green; }

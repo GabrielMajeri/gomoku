@@ -17,6 +17,10 @@ Color::Color(std::uint32_t hex)
            "Hex constructor does not support transparency");
 }
 
+Color::operator SDL_Color() const {
+    return {getR8(), getG8(), getB8(), getAlpha8()};
+}
+
 const Color Color::WHITE{0xFFFFFF};
 const Color Color::BLACK{0x000000};
 const Color Color::RED{0xFF0000};
