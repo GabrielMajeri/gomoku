@@ -5,6 +5,7 @@
 #include <vector>
 
 class Color;
+class Texture;
 class Window;
 
 /// Basic interface for rendering to a surface.
@@ -27,6 +28,10 @@ public:
 
     /// Draws a set of lines connecting the given points.
     void drawLines(const std::vector<SDL_Point>& points);
+
+    /// Copies a portion of a texture to a region on the render target.
+    void copyTexture(const Texture& texture, const SDL_Rect* src,
+                     const SDL_Rect* dest);
 
     /// Flips the back buffer with the front buffer, presenting a new frame
     /// onto the screen.

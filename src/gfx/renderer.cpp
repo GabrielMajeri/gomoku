@@ -1,6 +1,8 @@
 #include "renderer.hpp"
 
+#include "core/error.hpp"
 #include "gfx/color.hpp"
+#include "gfx/texture.hpp"
 #include "gui/window.hpp"
 
 Renderer::Renderer(Window& window) {
@@ -34,6 +36,12 @@ void Renderer::drawLine(int x1, int y1, int x2, int y2) {
 
 void Renderer::drawLines(const std::vector<SDL_Point>& points) {
     SDL_RenderDrawLines(getHandle(), points.data(), points.size());
+
+void Renderer::copyTexture(const Texture& texture, const SDL_Rect* src,
+                           const SDL_Rect* dest) {
+    if (SDL_RenderCopy(getHandle(), texture.getHandle(), src, dest) != 0) {
+        throw SDLError("Failed to copy texture");
+    }
 }
 
 void Renderer::present() { SDL_RenderPresent(getHandle()); }
