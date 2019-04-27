@@ -21,6 +21,7 @@ set(SRCS
     "src/gfx/surface.hpp" "src/gfx/surface.cpp"
     "src/gfx/texture.hpp" "src/gfx/texture.cpp"
     "src/gui/button.hpp" "src/gui/button.cpp"
+    "src/gui/cursor.hpp" "src/gui/cursor.cpp"
     "src/gui/font.hpp" "src/gui/font.cpp"
     "src/gui/event.hpp" "src/gui/event.cpp"
     "src/gui/image.hpp" "src/gui/image.cpp"
