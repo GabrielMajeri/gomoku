@@ -23,3 +23,15 @@ Surface Font::render(const std::string& text, Color color) const {
 
     return Surface(surface);
 }
+
+Surface Font::renderWrapped(const std::string& text, Color color,
+                            int width) const {
+    auto* surface =
+        TTF_RenderUTF8_Blended_Wrapped(getHandle(), text.c_str(), color, width);
+
+    if (!surface) {
+        throw SDLFontError("Failed to render wrapped text");
+    }
+
+    return Surface(surface);
+}

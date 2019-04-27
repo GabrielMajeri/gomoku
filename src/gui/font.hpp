@@ -13,4 +13,8 @@ public:
 
     /// Renders a string using the current font in a given color.
     Surface render(const std::string& text, Color color) const;
+
+    /// Renders a string by wrapping the text after a certain width.
+    Surface renderWrapped(const std::string& text, Color color,
+                          int width) const;
 };

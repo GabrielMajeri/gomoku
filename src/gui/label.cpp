@@ -3,9 +3,12 @@
 #include "gfx/renderer.hpp"
 
 Label::Label(Renderer& r, const Font& font, const std::string& text,
-             Color color)
-    : font(font), text(text), color(color), needsUpdate(false),
-      surface(font.render(text, color)), texture(r, surface) {}
+             Color color, int maxWidth)
+    : font(font), text(text), color(color), maxWidth(maxWidth),
+      needsUpdate(false), surface(font.render(text, color)),
+      texture(r, surface) {
+    needsUpdate = true;
+}
 
 int Label::getWidth() const { return surface.getWidth(); }
 
@@ -23,7 +26,11 @@ void Label::setColor(Color c) {
 
 void Label::draw(Renderer& r) const {
     if (needsUpdate) {
-        surface = font.render(text, color);
+        if (maxWidth) {
+            surface = font.renderWrapped(text, color, maxWidth);
+        } else {
+            surface = font.render(text, color);
+        }
         texture = Texture(r, surface);
 
         needsUpdate = false;

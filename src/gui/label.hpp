@@ -12,6 +12,7 @@ class Label : public Widget {
     const Font& font;
     std::string text;
     Color color;
+    int maxWidth;
 
     mutable bool needsUpdate;
     mutable Surface surface;
@@ -19,7 +20,9 @@ class Label : public Widget {
 
 public:
     /// Constructs a new label with text written in a certain color.
-    Label(Renderer& r, const Font& font, const std::string& text, Color color);
+    /// Max width can be used to make the text wrap.
+    Label(Renderer& r, const Font& font, const std::string& text, Color color,
+          int maxWidth = 0);
 
     int getWidth() const;
     int getHeight() const;

@@ -15,7 +15,7 @@ void Button::onUpdatePosition() {
 }
 
 Button::Button(Renderer& r, const Font& font, const std::string& text)
-    : label(r, font, text, TEXT_COLOR) {}
+    : label(r, font, text, TEXT_COLOR, 120) {}
 
 void Button::setClickHandler(ClickHandler&& h) { handler = h; }
 
