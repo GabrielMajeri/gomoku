@@ -9,6 +9,9 @@ public:
     /// Takes ownership of a raw SDL surface handle.
     Surface(SDL_Surface* rawHandle);
 
+    /// Loads an image from a file.
+    Surface(const std::string& path);
+
     int getWidth() const { return getHandle()->w; }
     int getHeight() const { return getHandle()->h; }
 };
