@@ -12,7 +12,7 @@ Color::Color(std::uint8_t r, std::uint8_t g, std::uint8_t b, std::uint8_t a)
 Color::Color(std::uint32_t hex)
     : Color(static_cast<std::uint8_t>((hex & 0xFF0000) >> 16),
             static_cast<std::uint8_t>((hex & 0xFF00) >> 8),
-            static_cast<std::uint8_t>((hex & 0xFF))) {
+            static_cast<std::uint8_t>((hex & 0xFF)), 255) {
     assert(((hex & 0xFF000000) == 0) &&
            "Hex constructor does not support transparency");
 }
@@ -20,6 +20,13 @@ Color::Color(std::uint32_t hex)
 Color::operator SDL_Color() const {
     return {getR8(), getG8(), getB8(), getAlpha8()};
 }
+
+bool Color::operator==(const Color& rhs) const {
+    return red == rhs.red && green == rhs.green && blue == rhs.blue &&
+           alpha == rhs.alpha;
+}
+
+bool Color::operator!=(const Color& rhs) const { return !(*this == rhs); }
 
 const Color Color::WHITE{0xFFFFFF};
 const Color Color::BLACK{0x000000};

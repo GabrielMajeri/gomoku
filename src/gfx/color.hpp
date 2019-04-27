@@ -18,17 +18,25 @@ public:
     /// Constructs a new color from its corresponding color code.
     Color(std::uint32_t hex);
 
+    // Conversion operator
     operator SDL_Color() const;
 
+    // Comparison operators
+    bool operator==(const Color& rhs) const;
+    bool operator!=(const Color& rhs) const;
+
+    // Float getters
     float getR() const { return red; }
     float getG() const { return green; }
     float getB() const { return blue; }
     float getAlpha() const { return alpha; }
 
+    // U8 getters
     std::uint8_t getR8() const { return 255 * red; }
     std::uint8_t getG8() const { return 255 * green; }
     std::uint8_t getB8() const { return 255 * blue; }
     std::uint8_t getAlpha8() const { return 255 * alpha; }
 
+    // Predefined colors
     const static Color WHITE, BLACK, RED, GREEN, BLUE, PINK, AQUA;
 };
