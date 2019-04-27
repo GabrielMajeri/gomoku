@@ -66,6 +66,10 @@ void Board::handleEvent(const SDL_Event& e) {
     switch (e.type) {
     case SDL_MOUSEBUTTONUP: {
         const auto& mbu = e.button;
+        if (mbu.button != SDL_BUTTON_LEFT) {
+            break;
+        }
+
         const auto bbox = getBoundingBox();
         const auto pt = SDL_Point{mbu.x, mbu.y};
 

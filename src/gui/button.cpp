@@ -40,6 +40,11 @@ void Button::handleEvent(const SDL_Event& e) {
     switch (e.type) {
     case SDL_MOUSEBUTTONUP: {
         const auto& mbu = e.button;
+
+        if (mbu.button != SDL_BUTTON_LEFT) {
+            break;
+        }
+
         const auto pt = SDL_Point{mbu.x, mbu.y};
         const auto bbox = getBoundingBox();
         if (SDL_PointInRect(&pt, &bbox)) {
