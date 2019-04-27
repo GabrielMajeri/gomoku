@@ -1,31 +1,14 @@
 #include <iostream>
 
 #include "core/sdl.hpp"
-#include "game/board.hpp"
-#include "gfx/color.hpp"
-#include "gfx/renderer.hpp"
-#include "gui/event.hpp"
-#include "gui/window.hpp"
+#include "game/game.hpp"
 
 void runGame() {
     SDL sdl;
     sdl.printVersionInfo();
 
-    Window window;
-
-    Renderer render{window};
-
-    render.setDrawColor(Color::BLACK);
-    render.clear();
-
-    Board board(20, 23);
-    board.draw(render);
-
-    render.present();
-
-    EventLoop loop;
-
-    loop.run();
+    Game game;
+    game.run();
 }
 
 int main(int, char*[]) {
@@ -34,6 +17,15 @@ int main(int, char*[]) {
         return EXIT_SUCCESS;
     } catch (const std::exception& e) {
         std::cerr << e.what() << std::endl;
+
+        std::string title = "Eroare Gomoku";
+        std::string message =
+            "Jocul a întâmpinat o eroare și a trebuit să se inchidă:\n";
+        message += e.what();
+
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, title.c_str(),
+                                 message.c_str(), nullptr);
+
         return EXIT_FAILURE;
     }
 }
