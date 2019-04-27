@@ -4,7 +4,7 @@
 
 Window::Window() {
     const char title[] = "Gomoku";
-    const int x = 200, y = 100;
+    const int x = SDL_WINDOWPOS_CENTERED, y = SDL_WINDOWPOS_CENTERED;
     const int width = 800, height = 600;
     const Uint32 flags = 0;
     SDL_Window* window = SDL_CreateWindow(title, x, y, width, height, flags);
