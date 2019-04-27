@@ -20,9 +20,11 @@ set(SRCS
     "src/gfx/renderer.hpp" "src/gfx/renderer.cpp"
     "src/gfx/surface.hpp" "src/gfx/surface.cpp"
     "src/gfx/texture.hpp" "src/gfx/texture.cpp"
+    "src/gui/button.hpp" "src/gui/button.cpp"
     "src/gui/font.hpp" "src/gui/font.cpp"
     "src/gui/event.hpp" "src/gui/event.cpp"
     "src/gui/image.hpp" "src/gui/image.cpp"
+    "src/gui/label.hpp" "src/gui/label.cpp"
     "src/gui/widget.hpp" "src/gui/widget.cpp"
     "src/gui/window.hpp" "src/gui/window.cpp"
 )
