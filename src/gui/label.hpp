@@ -7,6 +7,7 @@
 #include "gui/widget.hpp"
 #include <string>
 
+/// Static UI component for displaying colored text.
 class Label : public Widget {
     const Font& font;
     std::string text;
@@ -17,6 +18,7 @@ class Label : public Widget {
     mutable Texture texture;
 
 public:
+    /// Constructs a new label with text written in a certain color.
     Label(Renderer& r, const Font& font, const std::string& text, Color color);
 
     int getWidth() const;

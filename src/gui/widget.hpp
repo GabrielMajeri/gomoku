@@ -4,8 +4,10 @@
 #include "gui/event.hpp"
 #include <core/sdl.hpp>
 
-/// Component in the UI hierarchy. Contained in a rectangular box, derivatives
-/// of this class can draw themselves and respond to user input.
+/// Component in the UI hierarchy.
+///
+/// Contained in a rectangular box, derivatives of this class can
+/// draw themselves and respond to user input.
 class Widget : public Drawable, public EventHandler {
 protected:
     SDL_Point position;
