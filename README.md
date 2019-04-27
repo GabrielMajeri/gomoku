@@ -1,4 +1,4 @@
-# Connect Five
+# Gomoku
 
 A spin on the classic game [Connect Four](https://en.wikipedia.org/wiki/Connect_Four).
 
@@ -20,4 +20,4 @@ The objective was to implement an interface and a simple AI for this game in C++
 
 ## License
 
-The code is licensed under the [Mozilla Public License 2.0](LICENSE.txt)
+The code is licensed under the permissive [MIT license](LICENSE.txt)
