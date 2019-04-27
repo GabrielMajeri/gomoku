@@ -5,7 +5,7 @@
 #include "gui/label.hpp"
 
 class MainMenuState : public GameState {
-    Button swap1Button, swap2Button, exitButton;
+    Button swap1Button, swap2Button, creditsButton, exitButton;
     Label mainMenuText;
 
 public:

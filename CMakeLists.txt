@@ -15,6 +15,7 @@ set(SRCS
     "src/core/version.hpp" "src/core/version.cpp"
     "src/core/wrapper.hpp"
     "src/game/board.hpp" "src/game/board.cpp"
+    "src/game/credits.hpp" "src/game/credits.cpp"
     "src/game/finished.hpp" "src/game/finished.cpp"
     "src/game/game.hpp" "src/game/game.cpp"
     "src/game/main_menu.hpp" "src/game/main_menu.cpp"
