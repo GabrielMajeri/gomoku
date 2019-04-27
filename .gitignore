@@ -5,3 +5,6 @@
 
 # Cache for VS Code C/C++ extension
 .vscode/ipch/
+
+# Directory for Doxygen output
+/docs/
