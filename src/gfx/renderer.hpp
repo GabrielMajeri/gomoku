@@ -29,6 +29,12 @@ public:
     /// Draws a set of lines connecting the given points.
     void drawLines(const std::vector<SDL_Point>& points);
 
+    /// Draws a rectangular outline with the current draw color.
+    void drawRect(const SDL_Rect& rect);
+
+    /// Fills a rectangular portion of the surface with the current draw color.
+    void fillRect(const SDL_Rect& rect);
+
     /// Copies a portion of a texture to a region on the render target.
     void copyTexture(const Texture& texture, const SDL_Rect* src,
                      const SDL_Rect* dest);
