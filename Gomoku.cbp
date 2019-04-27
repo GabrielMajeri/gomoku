@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Gomoku" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="build/Bin/Debug/Gomoku" prefix_auto="1" extension_auto="1" />
+				<Option object_output="build/Obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="build/Bin/Release/Gomoku" prefix_auto="1" extension_auto="1" />
+				<Option object_output="build/Obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+			<Add option="-std=c++14" />
+			<Add directory="src" />
+			<Add directory="libs/i686-w64-mingw32/include/SDL2" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDL2main" />
+			<Add library="SDL2" />
+			<Add library="SDL2_image" />
+			<Add library="SDL2_ttf" />
+			<Add directory="libs/i686-w64-mingw32/lib" />
+		</Linker>
+		<ExtraCommands>
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)\\libs\\i686-w64-mingw32\\bin\\SDL2.dll&quot; &quot;$(PROJECT_DIR)\\$(TARGET_OUTPUT_DIR)\\SDL2.dll&quot;' />
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)\\libs\\i686-w64-mingw32\\bin\\SDL2_image.dll&quot; &quot;$(PROJECT_DIR)\\$(TARGET_OUTPUT_DIR)\\SDL2_image.dll&quot;' />
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)\\libs\\i686-w64-mingw32\\bin\\SDL2_ttf.dll&quot; &quot;$(PROJECT_DIR)\\$(TARGET_OUTPUT_DIR)\\SDL2_ttf.dll&quot;' />
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)\\libs\\i686-w64-mingw32\\bin\\libfreetype-6.dll&quot; &quot;$(PROJECT_DIR)\\$(TARGET_OUTPUT_DIR)\\libfreetype-6.dll&quot;' />
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)\\libs\\i686-w64-mingw32\\bin\\libpng16-16.dll&quot; &quot;$(PROJECT_DIR)\\$(TARGET_OUTPUT_DIR)\\libpng16-16.dll&quot;' />
+			<Add after='cmd /c copy &quot;$(PROJECT_DIR)\\libs\\i686-w64-mingw32\\bin\\zlib1.dll&quot; &quot;$(PROJECT_DIR)\\$(TARGET_OUTPUT_DIR)\\zlib1.dll&quot;' />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="src/core/error.cpp" />
+		<Unit filename="src/core/error.hpp" />
+		<Unit filename="src/core/sdl.cpp" />
+		<Unit filename="src/core/sdl.hpp" />
+		<Unit filename="src/core/version.cpp" />
+		<Unit filename="src/core/version.hpp" />
+		<Unit filename="src/core/wrapper.hpp" />
+		<Unit filename="src/game/board.cpp" />
+		<Unit filename="src/game/board.hpp" />
+		<Unit filename="src/game/credits.cpp" />
+		<Unit filename="src/game/credits.hpp" />
+		<Unit filename="src/game/finished.cpp" />
+		<Unit filename="src/game/finished.hpp" />
+		<Unit filename="src/game/game.cpp" />
+		<Unit filename="src/game/game.hpp" />
+		<Unit filename="src/game/main_menu.cpp" />
+		<Unit filename="src/game/main_menu.hpp" />
+		<Unit filename="src/game/playing.cpp" />
+		<Unit filename="src/game/playing.hpp" />
+		<Unit filename="src/game/state.cpp" />
+		<Unit filename="src/game/state.hpp" />
+		<Unit filename="src/gfx/color.cpp" />
+		<Unit filename="src/gfx/color.hpp" />
+		<Unit filename="src/gfx/drawable.hpp" />
+		<Unit filename="src/gfx/renderer.cpp" />
+		<Unit filename="src/gfx/renderer.hpp" />
+		<Unit filename="src/gfx/surface.cpp" />
+		<Unit filename="src/gfx/surface.hpp" />
+		<Unit filename="src/gfx/texture.cpp" />
+		<Unit filename="src/gfx/texture.hpp" />
+		<Unit filename="src/gui/button.cpp" />
+		<Unit filename="src/gui/button.hpp" />
+		<Unit filename="src/gui/cursor.cpp" />
+		<Unit filename="src/gui/cursor.hpp" />
+		<Unit filename="src/gui/event.cpp" />
+		<Unit filename="src/gui/event.hpp" />
+		<Unit filename="src/gui/font.cpp" />
+		<Unit filename="src/gui/font.hpp" />
+		<Unit filename="src/gui/image.cpp" />
+		<Unit filename="src/gui/image.hpp" />
+		<Unit filename="src/gui/label.cpp" />
+		<Unit filename="src/gui/label.hpp" />
+		<Unit filename="src/gui/widget.cpp" />
+		<Unit filename="src/gui/widget.hpp" />
+		<Unit filename="src/gui/window.cpp" />
+		<Unit filename="src/gui/window.hpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
