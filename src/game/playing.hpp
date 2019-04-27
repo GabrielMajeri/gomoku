@@ -21,6 +21,9 @@ public:
     /// Starts a new game with the Swap1 or Swap2 rules.
     PlayingState(Game& game, Renderer& r, bool swap1);
 
+    int getCurrentPlayer() const;
+    Color getCurrentColor() const;
+
     void draw(Renderer& r) const override;
     void handleEvent(const SDL_Event& e) override;
 

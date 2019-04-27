@@ -23,6 +23,9 @@ class Board : public Widget {
 
     std::vector<CellState> cells;
 
+    void reportWin();
+    void reportDraw();
+
 public:
     /// Constructs a new Gomoku board of a certain dimension.
     Board(Game& game, int rows, int columns, Image& p1, Image& p2);
@@ -30,6 +33,9 @@ public:
     /// Draws the board to the screen.
     void draw(Renderer& r) const override;
     void handleEvent(const SDL_Event& e) override;
+
+    /// Checks for and handles a winning board.
+    void checkWin();
 
     /// Clears all the cells to be empty.
     void reset();

@@ -36,6 +36,10 @@ PlayingState::PlayingState(Game& game, Renderer& r, bool swap1)
     currentPlayerLabel.setPosition(20, 20);
 }
 
+int PlayingState::getCurrentPlayer() const { return currentPlayer; }
+
+Color PlayingState::getCurrentColor() const { return currentColor; }
+
 void PlayingState::draw(Renderer& r) const { currentPlayerLabel.draw(r); }
 
 void PlayingState::handleEvent(const SDL_Event& e) {
@@ -44,6 +48,8 @@ void PlayingState::handleEvent(const SDL_Event& e) {
 
 void PlayingState::onBoardClicked(Board& b, int row, int col) {
     b.setCell(row, col, colorToCellState());
+
+    b.checkWin();
 
     flipPlayer();
     flipColor();

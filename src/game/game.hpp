@@ -16,7 +16,7 @@ class Game {
 
     bool running = false;
 
-    Font titleFont, normalFont;
+    Font titleFont, normalFont, bigFont;
     Label titleText;
     Image redPiece, bluePiece;
     Board board;
@@ -31,6 +31,9 @@ public:
     /// Requests the game loop to exit as early as possible.
     void exit();
 
+    /// Informs the game that it has ended.
+    void finishGame(int player, Color color);
+
     /// Clears the Gomoku board.
     void resetBoard();
 
@@ -42,4 +45,6 @@ public:
     const Font& getTitleFont() const;
     /// Retrieves the font used for the game's UI.
     const Font& getNormalFont() const;
+    /// Retrieves the font used for big UI components.
+    const Font& getBigFont() const;
 };

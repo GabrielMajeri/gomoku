@@ -1,12 +1,14 @@
 #include "game.hpp"
 
 #include "core/error.hpp"
+#include "game/finished.hpp"
 #include "game/main_menu.hpp"
 #include "gfx/renderer.hpp"
 
 Game::Game()
     : rdr(window), titleFont("assets/fonts/Acme-Regular.ttf", 32),
       normalFont("assets/fonts/Roboto-Regular.ttf", 20),
+      bigFont("assets/fonts/Roboto-Regular.ttf", 26),
       titleText(rdr, titleFont, "Gomoku", Color::AQUA),
       redPiece("assets/images/red.png", rdr, 22, 22),
       bluePiece("assets/images/blue.png", rdr, 22, 22),
@@ -48,6 +50,11 @@ void Game::run() {
 
 void Game::exit() { running = false; }
 
+void Game::finishGame(int player, Color color) {
+    auto finished = std::make_unique<FinishedState>(*this, rdr, player, color);
+    changeState(std::move(finished));
+}
+
 void Game::resetBoard() { board.reset(); }
 
 GameState* Game::getState() { return state.get(); }
@@ -59,3 +66,5 @@ void Game::changeState(std::unique_ptr<GameState>&& newState) {
 const Font& Game::getTitleFont() const { return titleFont; }
 
 const Font& Game::getNormalFont() const { return normalFont; }
+
+const Font& Game::getBigFont() const { return bigFont; }

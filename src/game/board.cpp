@@ -5,9 +5,16 @@
 #include "gfx/color.hpp"
 #include "gfx/renderer.hpp"
 #include "gui/image.hpp"
-#include <SDL.h>
+#include <algorithm>
 
 constexpr auto CELL_WIDTH = 25, CELL_HEIGHT = 25;
+
+void Board::reportWin() {
+    auto playing = static_cast<PlayingState*>(game.getState());
+    game.finishGame(playing->getCurrentPlayer(), playing->getCurrentColor());
+}
+
+void Board::reportDraw() { game.finishGame(0, Color::WHITE); }
 
 Board::Board(Game& game, int r, int c, Image& rp, Image& bp)
     : game{game}, rows{r}, columns{c}, redPiece{rp}, bluePiece{bp},
@@ -76,6 +83,98 @@ void Board::handleEvent(const SDL_Event& e) {
     } break;
     default:
         break;
+    }
+}
+
+void Board::checkWin() {
+    for (int row = 0; row < rows; ++row) {
+        for (int col = 0; col < columns - 4; ++col) {
+            auto first = getCell(row, col);
+
+            if (first == CellState::EMPTY) {
+                continue;
+            }
+
+            bool ok = true;
+            for (int k = 1; ok && k < 5; ++k) {
+                if (getCell(row, col + k) != first) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                reportWin();
+                return;
+            }
+        }
+    }
+
+    for (int row = 0; row < rows - 4; ++row) {
+        for (int col = 0; col < columns; ++col) {
+            auto first = getCell(row, col);
+
+            if (first == CellState::EMPTY) {
+                continue;
+            }
+
+            bool ok = true;
+            for (int k = 1; ok && k < 5; ++k) {
+                if (getCell(row + k, col) != first) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                reportWin();
+                return;
+            }
+        }
+    }
+
+    for (int row = 0; row < rows - 4; ++row) {
+        for (int col = 0; col < columns - 4; ++col) {
+            auto first = getCell(row, col);
+
+            if (first == CellState::EMPTY) {
+                continue;
+            }
+
+            bool ok = true;
+            for (int k = 1; ok && k < 5; ++k) {
+                if (getCell(row + k, col + k) != first) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                reportWin();
+                return;
+            }
+        }
+    }
+
+    for (int row = 0; row < rows - 4; ++row) {
+        for (int col = 4; col < columns; ++col) {
+            auto first = getCell(row, col);
+
+            if (first == CellState::EMPTY) {
+                continue;
+            }
+
+            bool ok = true;
+            for (int k = 1; ok && k < 5; ++k) {
+                if (getCell(row + k, col - k) != first) {
+                    ok = false;
+                }
+            }
+            if (ok) {
+                reportWin();
+                return;
+            }
+        }
+    }
+
+    // Game is drawn, no more possible moves
+    if (std::find(cells.begin(), cells.end(), CellState::EMPTY) ==
+        cells.end()) {
+        reportDraw();
     }
 }
 
