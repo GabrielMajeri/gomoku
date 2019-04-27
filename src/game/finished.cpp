@@ -14,12 +14,19 @@ FinishedState::FinishedState(Game& game, Renderer& r, int winningPlayer,
                              Color winningColor)
     : GameState(game),
       winnerLabel(r, game.getBigFont(),
-                  formatWinningPlayerString(winningPlayer), winningColor) {
+                  formatWinningPlayerString(winningPlayer), winningColor),
+      restartButton(r, game.getNormalFont(), "Restart joc") {
     winnerLabel.setPosition(20, 10);
+    restartButton.setPosition(650, 150);
+    restartButton.setClickHandler([&] { game.restartGame(); });
 }
 
-void FinishedState::draw(Renderer& r) const { winnerLabel.draw(r); }
+void FinishedState::draw(Renderer& r) const {
+    winnerLabel.draw(r);
+    restartButton.draw(r);
+}
 
 void FinishedState::handleEvent(const SDL_Event& e) {
     winnerLabel.handleEvent(e);
+    restartButton.handleEvent(e);
 }
