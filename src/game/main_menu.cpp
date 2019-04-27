@@ -15,7 +15,7 @@ MainMenuState::MainMenuState(Game& game, Renderer& r)
         game.changeState(std::make_unique<PlayingState>(game, r, true));
     });
 
-    swap2Button.setPosition(640, 200);
+    swap2Button.setPosition(640, 220);
     swap2Button.setClickHandler([&] {
         game.changeState(std::make_unique<PlayingState>(game, r, false));
     });

@@ -7,7 +7,7 @@
 
 Game::Game()
     : rdr(window), titleFont("assets/fonts/Acme-Regular.ttf", 32),
-      normalFont("assets/fonts/Roboto-Regular.ttf", 20),
+      normalFont("assets/fonts/Roboto-Regular.ttf", 18),
       bigFont("assets/fonts/Roboto-Regular.ttf", 26),
       titleText(rdr, titleFont, "Gomoku", Color::AQUA),
       redPiece("assets/images/red.png", rdr, 22, 22),
@@ -55,7 +55,10 @@ void Game::finishGame(int player, Color color) {
     changeState(std::move(finished));
 }
 
-void Game::resetBoard() { board.reset(); }
+void Game::restartGame() {
+    board.reset();
+    changeState(std::make_unique<MainMenuState>(*this, rdr));
+}
 
 GameState* Game::getState() { return state.get(); }
 

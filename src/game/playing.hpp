@@ -1,16 +1,21 @@
 #pragma once
 
 #include "game/state.hpp"
+#include "gui/button.hpp"
 #include "gui/label.hpp"
 
 enum class CellState : unsigned;
 
 /// The state in which the game has been started and is currently playing.
 class PlayingState : public GameState {
-    bool swap1;
-    int currentPlayer;
-    Color currentColor;
-    Label currentPlayerLabel;
+    int moveCount{0};
+    bool swap1, waitingForInput{false};
+    int currentPlayer{1};
+    Color currentColor{Color::RED};
+    Label currentPlayerLabel, messageLabel;
+    Button restartButton;
+    Button option1Button, option2Button, option3Button;
+    bool passOption{false};
 
     std::string formatCurrentPlayerString() const;
     CellState colorToCellState() const;

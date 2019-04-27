@@ -34,8 +34,8 @@ public:
     /// Informs the game that it has ended.
     void finishGame(int player, Color color);
 
-    /// Clears the Gomoku board.
-    void resetBoard();
+    /// Brings the game back to the initial state.
+    void restartGame();
 
     /// Retrieves the current game state.
     GameState* getState();
