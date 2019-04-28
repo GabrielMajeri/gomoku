@@ -8,19 +8,21 @@ enum class CellState : unsigned;
 
 /// The state in which the game has been started and is currently playing.
 class PlayingState : public GameState {
+    bool swap1, drawProposed{false}, passOption{false}, waitingForInput{false};
     int moveCount{0};
-    bool swap1, waitingForInput{false};
     int currentPlayer{1};
     Color currentColor{Color::RED};
     Label currentPlayerLabel, messageLabel;
-    Button restartButton;
+    Button restartButton, skipButton, drawButton, acceptDrawButton,
+        rejectDrawButton;
     Button option1Button, option2Button, option3Button;
-    bool passOption{false};
 
     std::string formatCurrentPlayerString() const;
     CellState colorToCellState() const;
     void flipPlayer();
     void flipColor();
+
+    void goToNextMove();
 
 public:
     /// Starts a new game with the Swap1 or Swap2 rules.
