@@ -48,25 +48,6 @@ target_compile_features(Gomoku PRIVATE cxx_std_14)
 # Allow including relative to the root source directory
 target_include_directories(Gomoku PRIVATE "src")
 
-# Add the SDL2 dependency
-if(WIN32)
-    set(LIBS_DIR "${PROJECT_SOURCE_DIR}/libs")
-
-    if(CMAKE_SIZEOF_VOID_P EQUAL 4)
-        set(SDL2_DIR "${LIBS_DIR}/i686-w64-mingw32")
-    else()
-        set(SDL2_DIR "${LIBS_DIR}/x86_64-w64-mingw32")
-    endif()
-    set(SDL2_BIN_DIR "${SDL2_DIR}/bin")
-
-    configure_file("${SDL2_BIN_DIR}/SDL2.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
-    configure_file("${SDL2_BIN_DIR}/SDL2_image.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
-    configure_file("${SDL2_BIN_DIR}/SDL2_ttf.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
-    configure_file("${SDL2_BIN_DIR}/libfreetype-6.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
-    configure_file("${SDL2_BIN_DIR}/libpng16-16.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
-    configure_file("${SDL2_BIN_DIR}/zlib1.dll" "${CMAKE_CURRENT_BINARY_DIR}" COPYONLY)
-endif()
-
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 find_package(SDL2_ttf REQUIRED)
