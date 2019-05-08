@@ -16,7 +16,8 @@ Project files are generated using [CMake](https://cmake.org/).
 This project was written for the Object Oriented Programming course
 at the Faculty of Mathematics and Computer Science, University of Bucharest.
 
-The objective was to implement an interface and a simple AI for this game in C++.
+The objective was to implement a GUI with support for the Swap and Swap2
+game rules in C++, using object-oriented programming.
 
 ## License
 
